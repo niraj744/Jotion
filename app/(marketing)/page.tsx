@@ -17,7 +17,9 @@ const Homepage = () => {
           <h2 className="sm:text-xl md:text-2xl w-[330px] sm:w-[500px]">
             Jotion is the connected workspace where better, faster work happens
           </h2>
-          <Button>Get Jotion Free -&gt;</Button>
+          <Button asChild>
+            <RegisterLink>Get Jotion Free -&gt;</RegisterLink>
+          </Button>
           <Homeimage />
         </div>
         <footer className="flex justify-between items-center py-6">
@@ -32,7 +34,6 @@ const Homepage = () => {
           </div>
         </footer>
       </div>
-      <RegisterLink>Login</RegisterLink>
     </div>
   );
 };

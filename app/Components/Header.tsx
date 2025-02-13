@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs";
 
 const Header = () => {
   const { setTheme } = useTheme();
@@ -18,8 +19,12 @@ const Header = () => {
     <header className="bg-transparent z-10 p-6 sticky top-0 flex justify-between bg-white dark:bg-background">
       <Logo />
       <div className="flex gap-2 items-center justify-between w-full md:w-fit md:justify-normal">
-        <Button variant={"outline"}>Login</Button>
-        <Button>Get Jotion free</Button>
+        <Button variant={"outline"} asChild>
+          <RegisterLink>Login</RegisterLink>
+        </Button>
+        <Button asChild>
+          <RegisterLink>Get Jotion Free</RegisterLink>
+        </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">

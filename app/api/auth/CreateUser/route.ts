@@ -6,7 +6,7 @@ export const POST = async (req: NextRequest) => {
     const token = await req.text();
     console.log(token);
     const res = await axios.post(
-      "http://localhost:8000/api/auth/CreateUser",
+      "https://jotion-backend.osc-fr1.scalingo.io/api/auth/CreateUser",
       {
         token,
       },

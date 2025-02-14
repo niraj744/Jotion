@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async (req: NextRequest) => {
   try {
     const token = await req.text();
+    console.log(token);
     const res = await axios.post(
       "http://localhost:8000/api/auth/CreateUser",
       {
@@ -13,7 +14,8 @@ export const POST = async (req: NextRequest) => {
         withCredentials: true,
       }
     );
-    return NextResponse.json(res);
+    console.log(res);
+    return NextResponse.json("res");
   } catch (error) {
     console.log(error);
   }

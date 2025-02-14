@@ -1,10 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest) => {
-  const token = await req.text();
-  console.log(token);
-  const fetchapi = await fetch("http://localhost:8000");
-  const body = await fetchapi.json();
-  console.log(body);
-  return NextResponse.json(body);
+  try {
+    const token = await req.text();
+    const res = await fetch("http://localhost:8000/api/auth/CreateUser", {
+      method: "POST",
+      credentials: "include",
+      body: JSON.stringify(token),
+    });
+    const body = await res.json();
+    console.log(body);
+    return NextResponse.json("hello");
+  } catch (error) {
+    console.log(error);
+  }
 };

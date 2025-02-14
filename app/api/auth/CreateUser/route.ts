@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async (req: NextRequest) => {
   try {
     const token = await req.text();
-    console.log(token);
     const res = await axios.post(
       "https://jotion-backend.osc-fr1.scalingo.io/api/auth/CreateUser",
       {
@@ -14,8 +13,7 @@ export const POST = async (req: NextRequest) => {
         withCredentials: true,
       }
     );
-    console.log(res);
-    return NextResponse.json("res");
+    return NextResponse.json(res.statusText, { status: res.status });
   } catch (error) {
     console.log(error);
   }
